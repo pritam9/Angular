@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Shopahoilc : Login</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-cookies.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="favicon_16.ico"/>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="js/site.min.js"></script>
+        <link rel="stylesheet" href="css/site.min.css">
+        <script type="text/javascript" src="js/signup.js"></script> 
+    </head>
+    <body data-ng-app="shoppingApplication">  
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-inverse" role="navigation">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-8">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="#">Shopahoilc</a>
+                        </div>
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-8">
+                            <button type="button" class="btn btn-danger navbar-btn" onclick="document.location.href = 'index.html'">Log In</button>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row"></div>
+            <div class="row">
+                <div class="container-fluid col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-3"></div>
+                        <div data-ng-controller="signupController" class="panel-group">
+                            <div class="example col-sm-6" style="background-color: #A0D468;">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h1 class="example-title" style="text-align: center">Login</h1>
+                                        <form name="myForm">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <input type="text" name="firstName" data-ng-model="firstName" class="form-control" placeholder="First Name" required style="text-align: center">
+                                                </div>
+
+                                            </div>
+                                            <div class="row" ng-show="myForm.firstName.$touched && myForm.firstName.$invalid">
+                                                <div class="alert alert-danger col-md-12">
+                                                    <strong>Error!</strong> The First Name is required.
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <input type="text" name="lastName" data-ng-model="lastName"class="form-control" placeholder="Last Name" required style="text-align: center">
+                                                </div>
+
+                                            </div>
+                                            <div class="row" ng-show="myForm.lastName.$touched && myForm.lastName.$invalid">
+                                                <div class="alert alert-danger col-md-12">
+                                                    <strong>Error!</strong> The Last Name is required.
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <input type="tel" name="phoneNumber" data-ng-model="phoneNumber" class="form-control" placeholder="7047047878" required style="text-align: center">
+                                                </div>
+
+                                            </div>
+                                            <div class="row" ng-show="myForm.phoneNumber.$touched && myForm.phoneNumber.$invalid">
+                                                <div class="alert alert-danger col-md-12">
+                                                    <strong>Error!</strong> The Phone Number is required.
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <input type="number" name="creditCard" data-ng-model="creditCard"class="form-control" placeholder="1234123412341234" required style="text-align: center" my-directive>
+                                                </div>
+
+                                            </div>
+                                            <div class="row" data-ng-show="myForm.creditCard.$touched && myForm.creditCard.$invalid &&  myForm.creditCard.$error.lengthC">
+                                                <div class="alert alert-danger col-md-12">
+                                                    <strong>Error!</strong> The Credit card number should have 16 digits.
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <input type="email" name="username" data-ng-model="username" class="form-control" placeholder="Email Id" required style="text-align: center">
+                                                </div>
+
+                                            </div>
+                                            <div class="row" ng-show="myForm.username.$touched && myForm.username.$invalid">
+                                                <div class="alert alert-danger col-md-12">
+                                                    <strong>Error!</strong> The username is required.
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <input type="password" name="password" data-ng-model="password"class="form-control" placeholder="Password" required style="text-align: center">
+                                                </div>
+
+                                            </div>
+                                            <div class="row" ng-show="myForm.password.$touched && myForm.password.$invalid">
+                                                <div class="alert alert-danger col-md-12">
+                                                    <strong>Error!</strong> The password is required.
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <button type="submit" name="action" data-ng-click="signup('user')" value="user" class="btn btn-primary btn-block">Customer Sign Up</button>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <button type="submit" name="action" data-ng-click="signup('employee')"value="organizer" class="btn btn-primary btn-block">Employee Sign Up</button>
+                                                </div>
+                                            </div>
+
+                                            <div data-ng-show="showMessage">
+                                                <div class="row">
+                                                    <div class="alert alert-danger col-md-12">
+                                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                                        <strong>Error!</strong> {{message}}</div>
+                                                </div>		
+
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </body>
+</html>

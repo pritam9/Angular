@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Shopahoilc : Home</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-cookies.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="favicon_16.ico"/>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="js/site.min.js"></script>
+        <link rel="stylesheet" href="css/site.min.css">
+        <script type="text/javascript" src="js/customer.js"></script> 
+    </head>
+    <body data-ng-app="shoppingApplication">  
+        <!--    Navbars -->
+
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-inverse" role="navigation">
+                    <div class="container-fluid">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="#">Shopaholic</a>
+                        </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="#">Link</a></li>
+                                <!-- <li class="disabled"><a href="#">Link</a></li> -->
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li class="dropdown-header">Setting</li>
+                                        <li><a href="#">Action</a></li>
+                                        <li><a href="#">Another action</a></li>
+                                        <li><a href="#">Something else here</a></li>
+                                        <li class="divider"></li>
+                                        <li class="active"><a href="#">Separated link</a></li>
+                                        <li class="divider"></li>
+                                        <li class="disabled"><a href="#">One more separated link</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div data-ng-controller="logOutController">
+                            <form class="navbar-form navbar-right" role="search">
+                                <div class="form-inline search-only">
+                                    <i class="search-icon glyphicon glyphicon-log-out" data-ng-click="logout()"></i>
+                                    <input type="button" class="form-control search-query">
+                                </div>
+                            </form>
+                            </div>
+                        </div><!-- /.navbar-collapse -->
+                    </div><!-- /.container-fluid -->
+                </nav>
+            </div>
+        </div>
+
+
+
+        <!-- Div -->
+        <div class="container col-sm-12">
+            <div class ="row">
+
+
+                <!-- Div to hold main data for User-->
+                <div class="col-sm-9">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Catalog</h3>
+                        </div>
+                        <div class="panel-body" data-ng-controller="productController" data-ng-init="loadProducts()">
+
+                            <div class="row" data-ng-show="orderError">
+                                <div class="alert alert-danger">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    <strong>Error!</strong> {{orderErrorMsg}}            </div>
+                            </div>
+
+
+                            <div class="row" data-ng-show="orderSuccess">
+                                <div class="alert alert-success">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    <strong>Success!</strong> {{orderSuccessMsg}}            </div>
+                            </div>
+
+
+                            <!-- Start of Tabs -->
+                            <div class="panel">
+                                <div class="tabbable tabs-left clearfix panel-info">
+                                    <ul id="myTab2" class="nav nav-tabs nav-justified">
+                                        <li class="active"><a href="#home3" data-toggle="tab">Products</a></li>
+                                        <!--li><a href="#profile3" data-toggle="tab">Subject</a></li-->
+                                        <li><a href="#myTabDrop3" data-toggle="tab">Profile</a></li>
+                                    </ul>
+                                    <div id="myTabContent1" class="tab-content">
+                                        <div class="tab-pane fade active in" id="home3" >
+
+                                            <div data-ng-show="showProductError">
+                                                <div class="alert alert-success alert-dismissable">
+                                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                                    <strong>No Records!</strong> {{productError}}
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 col-md-3" data-ng-repeat="product in productList">
+                                                <div class="thumbnail">
+                                                    <img class="img-rounded" src="img/thumbnail-2.jpg">
+                                                    <div class="panel panel-primary">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">{{product.productName}}</h3>
+                                                        </div>
+                                                        <div class="panel-body">
+                                                            <p class="panel-title">Quantity: {{product.quantityInStock}}</p>
+                                                            <p class="panel-title">Price: {{product.productPrice}}</p>
+
+                                                            <p><a href="#" class="btn btn-warning" data-ng-click="addToCart(product)" role="button">Add to Cart</a></p>
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+                                        <div class="tab-pane fade" id="profile3">
+                                            <!-- Start of thumbnail -->
+                                            <div class="col-sm-6 col-md-3">
+                                                <div class="thumbnail">
+                                                    <img class="img-rounded" src="img/thumbnail-2.jpg">
+                                                    <div class="caption text-center">
+                                                        <h3>Thumbnail label</h3>
+                                                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id ...</p>
+                                                        <p><a href="#" class="btn btn-warning" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 col-md-3">
+                                                <div class="thumbnail">
+                                                    <img class="img-rounded" src="img/thumbnail-3.jpg">
+                                                    <div class="caption text-center">
+                                                        <h3>Thumbnail label</h3>
+                                                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id ...</p>
+                                                        <p><a href="#" class="btn btn-warning" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 col-md-3">
+                                                <div class="thumbnail">
+                                                    <img class="img-rounded" src="img/thumbnail-4.jpg">
+                                                    <div class="caption text-center">
+                                                        <h3>Thumbnail label</h3>
+                                                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id ...</p>
+                                                        <p><a href="#" class="btn btn-warning" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- End of Thumbnail -->
+                                        </div>
+                                        <div class="tab-pane fade" id="myTabDrop3">
+                                            <div data-ng-controller="profileController" data-ng-init="loadProfile()"class="panel-group">
+                                                <div class="example col-sm-12" style="background-color: #A0D468;">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <h1 class="example-title" style="text-align: center">Update Profile</h1>
+                                                            <form>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <input type="text" name="firstName" data-ng-model="firstName" class="form-control" placeholder="First Name" required style="text-align: center">
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <input type="text" name="lastName" data-ng-model="lastName"class="form-control" placeholder="Last Name" required style="text-align: center">
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <input type="text" name="phoneNumber" data-ng-model="phoneNumber" class="form-control" placeholder="7047047878" required style="text-align: center">
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <input type="text" name="creditCard" data-ng-model="creditCard"class="form-control" placeholder="1234123412341234" required style="text-align: center">
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <input type="email" name="username" data-ng-model="username" class="form-control" placeholder="Email Id" disabled="disabled" required style="text-align: center">
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <input type="password" name="password" data-ng-model="password"class="form-control" placeholder="Password"  required style="text-align: center">
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <button type="submit" name="action" data-ng-click="updateProfile()" value="user" class="btn btn-primary btn-block">Update</button>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <button type="submit" name="action" data-ng-click="signup('employee')"value="organizer" class="btn btn-primary btn-block">Cancel</button>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div data-ng-show="showError">
+                                                                    <div class="row">
+                                                                        <div class="alert alert-danger col-md-12">
+                                                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                                                            <strong>Error!</strong> {{error}}</div>
+                                                                    </div>		
+
+                                                                </div>
+                                                                <div data-ng-show="showSuccess">
+                                                                    <div class="row">
+                                                                        <div class="alert alert-success">
+                                                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                                                            <strong>Success!</strong> {{success}}            </div>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Holds Panel for left Notations -->
+                <div class ="col-sm-3">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Details</h3>
+                        </div>
+                        <div class="panel-body" data-ng-controller="cartController">
+
+                            <!-- tab -->
+                            <div class="panel">
+                                <ul id="myTab1" class="nav nav-pills nav-justified">
+                                    <!--li class="active"><a href="#home1" data-toggle="tab">Notifications <span class="badge">42</span></a></li-->
+                                    <li class="active"><a href="#profile1" data-toggle="tab">Cart <span class="badge badge-danger">{{size}}</span></a></li>
+                                    <!--li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">@fat</a></li>
+                                            <li><a href="#">@mdo</a></li>
+                                        </ul>
+                                    </li-->
+                                </ul>
+
+                                <div id="myTabContent" class="tab-content">
+                                    <div class="tab-pane fade" id="home1">
+                                        <div class="list-group">
+                                            <a href="#" class="list-group-item">Cras justo odio</a>
+                                            <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+                                            <a href="#" class="list-group-item">Morbi leo risus nbvhg vhjhv nbnhj bjhbjh</a>
+                                            <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+                                            <a href="#" class="list-group-item">Vestibulum at eros</a>
+                                            <a href="#" class="list-group-item"><span class="badge badge-primary">38</span>Morbi leo risus bvjbbnvm bvbnvbnvv vhgvbnm vmnvmbmhv vm</a>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade active in" id="profile1">
+                                        <div class="list-group">
+
+
+                                            <!--<a href="#" class="list-group-item">
+                                                <h4 class="list-group-item-heading">No Upcoming Events</h4>
+                                                <p class="list-group-item-text">There are no upcoming events for you.</p>
+                                            </a>-->
+
+
+                                            <a href="#" class="list-group-item" data-ng-repeat="product in myCartItems track by $index">
+
+                                                <h4 class="list-group-item-heading">{{product.productName}}</h4><i class="glyphicon glyphicon-trash right" data-ng-click="deleteProduct(product.productID)"></i>
+                                                <p class="list-group-item-text">Quantity: {{product.quantityInStock}}</p>
+                                                <p class="list-group-item-text">Price       : {{product.productPrice}}</p>
+
+                                            </a>
+                                            <a href="#" class="btn btn-block btn-info list-group-item" data-ng-click="placeOrder()" role="button">Place Order</a>
+
+                                        </div>
+                                    </div>
+                                    <!--div class="tab-pane fade" id="dropdown1-1">
+                                        <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone...</p>
+                                    </div>
+                                    <div class="tab-pane fade" id="dropdown1-2">
+                                        <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche ... </p>
+                                    </div-->
+                                </div>
+                            </div>
+                            <!--Modal-->
+                            <div class="modal modal-open">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                            <h4 class="modal-title">Contact</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Feel free to contact us for any issues you might have with our products.</p>
+                                            <div class="row">
+                                                <div class="col-xs-6">
+                                                    <label>Name</label>
+                                                    <input type="text" class="form-control" placeholder="Name">
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <label>Email</label>
+                                                    <input type="text" class="form-control" placeholder="Email">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <label>Message</label>
+                                                    <textarea class="form-control" rows="3">Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-success">Send</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </body>
+</html>

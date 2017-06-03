@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Shopahoilc : Home</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-cookies.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="favicon_16.ico"/>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="js/site.min.js"></script>
+        <link rel="stylesheet" href="css/site.min.css">
+        <script type="text/javascript" src="js/feedback.js"></script> 
+    </head>
+    <body data-ng-app="shoppingApplication">  
+        <!--    Navbars -->
+
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-inverse" role="navigation">
+                    <div class="container-fluid">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="#">Shopaholic</a>
+                        </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="#">Link</a></li>
+                                <!-- <li class="disabled"><a href="#">Link</a></li> -->
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li class="dropdown-header">Setting</li>
+                                        <li><a href="#">Action</a></li>
+                                        <li><a href="#">Another action</a></li>
+                                        <li><a href="#">Something else here</a></li>
+                                        <li class="divider"></li>
+                                        <li class="active"><a href="#">Separated link</a></li>
+                                        <li class="divider"></li>
+                                        <li class="disabled"><a href="#">One more separated link</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div data-ng-controller="logOutController">
+                                <form class="navbar-form navbar-right" role="search">
+                                    <div class="form-inline search-only">
+                                        <i class="search-icon glyphicon glyphicon-log-out" data-ng-click="logout()"></i>
+                                        <input type="button" class="form-control search-query">
+                                    </div>
+                                </form>
+                            </div>
+                        </div><!-- /.navbar-collapse -->
+                    </div><!-- /.container-fluid -->
+                </nav>
+            </div>
+        </div>
+
+
+
+        <!-- Div -->
+        <div class="container col-sm-12">
+            <div class ="row">
+
+
+                <!-- Div to hold main data for User-->
+                <div class="col-sm-9">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Feedback</h3>
+                        </div>
+                        <div class="panel-body" data-ng-controller="feedbackController" data-ng-init="loadDetails()">
+
+                            <div class="row" data-ng-show="orderError">
+                                <div class="alert alert-danger">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    <strong>Error!</strong> {{orderErrorMsg}}            </div>
+                            </div>
+
+
+                            <div class="row" data-ng-show="orderSuccess">
+                                <div class="alert alert-success">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    <strong>Success!</strong> {{orderSuccessMsg}}            </div>
+                            </div>
+
+
+                            <!-- Start of Tabs -->
+                            <div class="panel">
+                                <div class="example col-sm-12" style="background-color: #A0D468;">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h1 class="example-title" style="text-align: center">Thanks for your order. Kindly Provide feedback!</h1>
+                                            <form name="myForm">
+
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <select data-ng-model="rating" class="form-control" required style="text-align: center">
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                        </select>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <textarea type="text" name="feedbackText" data-ng-model="feedback" class="form-control" placeholder="Easy to acccess" required style="text-align: center"></textarea>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="row" ng-show="myForm.feedbackText.$touched && myForm.feedbackText.$invalid">
+                                                <div class="alert alert-danger col-md-12">
+                                                    <strong>Error!</strong> The feedback is required.</div>
+
+                                            </div>
+
+
+                                                <div class="row">
+                                                    <div class="col-md-6">
+
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                        <button type="button" class="btn btn-success" data-ng-click="confirm()">Send</button>
+                                                    </div>
+
+                                                </div>
+
+                                                <div data-ng-show="showError">
+                                                    <div class="row">
+                                                        <div class="alert alert-danger col-md-12">
+                                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                                            <strong>Error!</strong> {{error}}</div>
+                                                    </div>		
+
+                                                </div>
+                                                <div data-ng-show="showSuccess">
+                                                    <div class="row">
+                                                        <div class="alert alert-success">
+                                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                                            <strong>Success!</strong> {{success}}            </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </body>
+</html>

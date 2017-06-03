@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/MS_CS/Intelligent%20Systems/TicTacToe/Shopping/web/js/employee.js</file>
+            <file>file:/MS_CS/Intelligent%20Systems/TicTacToe/Shopping/web/signup.html</file>
+            <file>file:/MS_CS/Intelligent%20Systems/TicTacToe/Shopping/web/signup_2.html</file>
+            <file>file:/MS_CS/Intelligent%20Systems/TicTacToe/Shopping/src/java/com/shopaholic/model/MyResponse.java</file>
+            <file>file:/MS_CS/Intelligent%20Systems/TicTacToe/Shopping/web/employeeHome.html</file>
+            <file>file:/MS_CS/Intelligent%20Systems/TicTacToe/Shopping/src/java/com/shopaholic/model/Employee.java</file>
+            <file>file:/MS_CS/Intelligent%20Systems/TicTacToe/Shopping/web/feedback.html</file>
+            <file>file:/MS_CS/Intelligent%20Systems/TicTacToe/Shopping/src/java/com/shopaholic/controller/SignUpServlet.java</file>
+            <file>file:/MS_CS/Intelligent%20Systems/TicTacToe/Shopping/src/java/com/shopaholic/dao/CustomerDaoImpl.java</file>
+            <file>file:/MS_CS/Intelligent%20Systems/TicTacToe/Shopping/web/js/signup_2.js</file>
+            <file>file:/MS_CS/Intelligent%20Systems/TicTacToe/Shopping/web/index.html</file>
+            <file>file:/MS_CS/Intelligent%20Systems/TicTacToe/Shopping/web/js/signup.js</file>
+            <file>file:/MS_CS/Intelligent%20Systems/TicTacToe/Shopping/src/java/com/shopaholic/controller/AddProductServlet.java</file>
+            <file>file:/MS_CS/Intelligent%20Systems/TicTacToe/Shopping/src/java/com/shopaholic/controller/GetEmployeeServlet.java</file>
+            <file>file:/MS_CS/Intelligent%20Systems/TicTacToe/Shopping/src/java/com/shopaholic/controller/DeleteProductServlet.java</file>
+            <file>file:/MS_CS/Intelligent%20Systems/TicTacToe/Shopping/src/java/com/shopaholic/controller/UpdateProfileServlet.java</file>
+            <file>file:/MS_CS/Intelligent%20Systems/TicTacToe/Shopping/src/java/com/shopaholic/dao/CustomerDao.java</file>
+            <file>file:/MS_CS/Intelligent%20Systems/TicTacToe/Shopping/web/signup_1.html</file>
+            <file>file:/MS_CS/Intelligent%20Systems/TicTacToe/Shopping/src/java/com/shopaholic/dao/EmployeeDao.java</file>
+            <file>file:/MS_CS/Intelligent%20Systems/TicTacToe/Shopping/src/java/com/shopaholic/dao/ProductDaoImp.java</file>
+            <file>file:/MS_CS/Intelligent%20Systems/TicTacToe/Shopping/web/js/confirm.js</file>
+            <file>file:/MS_CS/Intelligent%20Systems/TicTacToe/Shopping/src/java/com/shopaholic/controller/EmployeeLoginServlet.java</file>
+            <file>file:/MS_CS/Intelligent%20Systems/TicTacToe/Shopping/src/java/com/shopaholic/dao/EmployeeDaoImpl.java</file>
+            <file>file:/MS_CS/Intelligent%20Systems/TicTacToe/Shopping/web/js/application.js</file>
+            <file>file:/MS_CS/Intelligent%20Systems/TicTacToe/Shopping/web/customerHome.html</file>
+            <file>file:/MS_CS/Intelligent%20Systems/TicTacToe/Shopping/web/js/signup_1.js</file>
+            <file>file:/MS_CS/Intelligent%20Systems/TicTacToe/Shopping/web/js/login.js</file>
+            <file>file:/MS_CS/Intelligent%20Systems/TicTacToe/Shopping/web/js/customer.js</file>
+            <file>file:/MS_CS/Intelligent%20Systems/TicTacToe/Shopping/web/confirmOrder.html</file>
+            <file>file:/MS_CS/Intelligent%20Systems/TicTacToe/Shopping/web/js/feedback.js</file>
+            <file>file:/MS_CS/Intelligent%20Systems/TicTacToe/Shopping/src/java/com/shopaholic/controller/SaveFeedbackServlet.java</file>
+            <file>file:/MS_CS/Intelligent%20Systems/TicTacToe/Shopping/src/java/com/shopaholic/model/Product.java</file>
+        </group>
+    </open-files>
+</project-private>
